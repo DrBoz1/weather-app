@@ -7,6 +7,9 @@ function WeatherApp(){
     async function fetchWeatherData(){
         const apiKey = "2074262ee1d5d79dd6e2e091469c8a4e";
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+        useEffect(() =>{
+            fetchWeatherData();
+        }, []);
 
 
         try{
@@ -18,11 +21,6 @@ function WeatherApp(){
         }
     }
 
-
-
-
-
-
     return(
         <>
             <div className="search-area">
@@ -33,7 +31,18 @@ function WeatherApp(){
             
             </div>
 
-            
+            {weatherData && weatherData.main && (
+                
+                <div className="weather-info">
+                    <h2>{weatherData.name}</h2>
+                    <p>{weatherData.weather[0].description}</p>
+                    <p>🌡️ Temp: {weatherData.main.temp}&deg;C</p>
+                    <p>💧 Humidity: {weatherData.main.humidity}%</p>
+                    <p>💨 Wind: {weatherData.wind.speed} m/s</p>
+                </div>
+
+
+            )}
         
         </>
     )
