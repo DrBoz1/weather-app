@@ -4,12 +4,14 @@ function WeatherApp(){
     const [cityName, setCityName] = useState("Malaysia");
     const [weatherData, setWeatherData] = useState(null);
 
+    useEffect(() =>{
+        fetchWeatherData();
+    }, [cityName]);
+
     async function fetchWeatherData(){
         const apiKey = "2074262ee1d5d79dd6e2e091469c8a4e";
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
-        useEffect(() =>{
-            fetchWeatherData();
-        }, []);
+       
 
 
         try{
