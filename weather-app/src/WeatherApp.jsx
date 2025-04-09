@@ -29,7 +29,7 @@ function WeatherApp(){
                 <input type="text" 
                 placeholder="Type a City Name..."
                 value={cityName} onChange={(e) => setCityName(e.target.value)}/>
-                <button className="search" onClick={fetchWeatherData}>🔍</button>
+                <button className="search-button" onClick={fetchWeatherData}>🔍</button>
             
             </div>
 
