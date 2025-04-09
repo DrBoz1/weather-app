@@ -4,6 +4,11 @@ function WeatherApp(){
     const [cityName, setCityName] = useState("Malaysia");
 
 
+
+
+
+
+
     return(
         <>
             <div className="search-area">
